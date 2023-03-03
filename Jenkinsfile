@@ -20,6 +20,13 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Scan')
+        {
+            steps{
+                withSonarQubeEnv(installationName: 'sq1')
+                sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+            }
+        }
         stage('Deploy') {
             steps {
                 deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://4.194.27.233:8080/')], contextPath: null, war: '**/*.war'
