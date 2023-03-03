@@ -3,6 +3,7 @@ pipeline {
     tools{
         maven 'local_maven'
         jdk 'local_jdk'
+        sonarqube_scanner 'qube'
     }
     stages {
         stage('Stage Clone') {
