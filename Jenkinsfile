@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools{
         maven 'local_maven'
+        jdk 'local_jdk'
     }
     stages {
         stage('Stage Clone') {
