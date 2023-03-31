@@ -23,4 +23,4 @@ start_http_server(8000)
 # Vòng lặp vô hạn để kiểm tra kết nối của MySQL và cập nhật metric
 while True:
     check_mysql_connection()
-    sleep(5)
+  
